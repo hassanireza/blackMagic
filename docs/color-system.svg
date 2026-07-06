@@ -1,0 +1,27 @@
+<svg width="900" height="220" viewBox="0 0 900 220" xmlns="http://www.w3.org/2000/svg" font-family="Manrope, Arial, sans-serif">
+  <rect width="900" height="220" fill="#05070f"/>
+  <text x="30" y="34" fill="#f5f7ff" font-size="16" font-weight="700">Black Magic color tokens</text>
+
+  <g>
+    <rect x="30" y="56" width="120" height="60" rx="8" fill="#05070f" stroke="#7fc4ff" stroke-width="1.4"/>
+    <text x="90" y="132" text-anchor="middle" fill="#bcd4ff" font-size="12">void #05070f</text>
+
+    <rect x="170" y="56" width="120" height="60" rx="8" fill="#0c1636"/>
+    <text x="230" y="132" text-anchor="middle" fill="#bcd4ff" font-size="12">depth #0c1636</text>
+
+    <rect x="310" y="56" width="120" height="60" rx="8" fill="#24408f"/>
+    <text x="370" y="132" text-anchor="middle" fill="#bcd4ff" font-size="12">ink blue #24408f</text>
+
+    <rect x="450" y="56" width="120" height="60" rx="8" fill="#4f7dff"/>
+    <text x="510" y="132" text-anchor="middle" fill="#bcd4ff" font-size="12">signal #4f7dff</text>
+
+    <rect x="590" y="56" width="120" height="60" rx="8" fill="#7fc4ff"/>
+    <text x="650" y="132" text-anchor="middle" fill="#0c1636" font-size="12">glow #7fc4ff</text>
+
+    <rect x="730" y="56" width="120" height="60" rx="8" fill="#f5f7ff"/>
+    <text x="790" y="132" text-anchor="middle" fill="#0c1636" font-size="12">paper #f5f7ff</text>
+  </g>
+
+  <text x="30" y="168" fill="#8fa3d6" font-size="13">Display type: Cinzel. Body and UI type: Manrope.</text>
+  <text x="30" y="190" fill="#8fa3d6" font-size="13">The wordmark, buttons and headings use Cinzel. Paragraph copy and form fields use Manrope.</text>
+</svg>
