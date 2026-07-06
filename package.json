@@ -2,7 +2,7 @@
   "name": "black-magic",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://hassanireza.github.io/black-magic",
+  "homepage": "https://hassanireza.github.io/blackMagic",
   "devDependencies": {
     "typescript": "4.9.5"
   },

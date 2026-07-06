@@ -1,5 +1,12 @@
 # Black Magic
 
+[![Build and deploy to GitHub Pages](https://github.com/hassanireza/blackMagic/actions/workflows/deploy.yml/badge.svg?branch=main)](https://github.com/hassanireza/blackMagic/actions/workflows/deploy.yml)
+[![Deployed on GitHub Pages](https://img.shields.io/badge/deployed-github%20pages-4f7dff)](https://hassanireza.github.io/blackMagic)
+[![React](https://img.shields.io/badge/react-18.3-61dafb?logo=react&logoColor=white)](https://react.dev/)
+[![styled--components](https://img.shields.io/badge/styled--components-6.4-db7093?logo=styledcomponents&logoColor=white)](https://styled-components.com/)
+[![Node](https://img.shields.io/badge/node-20.x-339933?logo=node.js&logoColor=white)](https://nodejs.org/)
+[![License](https://img.shields.io/badge/license-add%20one-lightgrey)](#license)
+
 An interactive teaser site for Black Magic, built as a single scroll free experience where a mosaic image reassembles itself as the visitor moves their cursor or finger across the screen.
 
 <img src="docs/architecture.svg" alt="Black Magic component architecture diagram" width="100%" />
@@ -151,4 +158,4 @@ The site targets the last version of Chrome, Firefox and Safari in development, 
 
 ## License
 
-This project is provided as is for Black Magic. Add your preferred license here before making the repository public.
+This project is provided as is for Black Magic. Add your preferred license here before making the repository public, then update the license badge at the top of this file to match.
