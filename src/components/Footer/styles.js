@@ -18,42 +18,36 @@ export const Footer = styled.footer`
 `
 
 export const H2 = styled.h2`
-color: #f5f7ff;
-font-family: 'Cinzel', serif;
-font-size: 48px;
+color: var(--bone);
+font-family: 'Playfair Display', serif;
+font-size: 44px;
 font-weight: 600;
 line-height: 0.8;
 margin: 0;
 padding: 0 15px;
 
 @media (max-width: 900px) {
-font-size: 34px;
+font-size: 32px;
 }
 @media (max-width: 480px) {
-font-size: 20px;
+font-size: 19px;
 padding: 0;
 }
 `
-export const H2Middle = styled(H2)`
+export const H2Middle = styled.p`
+color: var(--silver);
 flex-grow: 1;
-position: relative;
+font-family: 'Jost', sans-serif;
+font-size: 13px;
+font-weight: 400;
+letter-spacing: 4px;
+margin: 0 15px 6px;
 text-align: center;
-
-&::after {
-content: '';
-background-color: #7fc4ff;
-display: block;
-position: absolute;
-height: 2px;
-left: 15px;
-right: 15px;
-top: 50%;
-}
+text-transform: uppercase;
 
 @media (max-width: 480px) {
-&::after {
-left: 8px;
-right: 8px;
-}
+font-size: 10px;
+letter-spacing: 2px;
+margin: 0 0 4px;
 }
 `

@@ -3,7 +3,7 @@ import { AbsoluteCenter } from "../../styles";
 export const Modal = styled.div`
 ${AbsoluteCenter}
 animation: glow 1s forwards;
-background: #fbfbfb;
+background: #efece3;
 box-sizing: border-box;
 padding: 60px;
 max-width: 800px;
@@ -16,9 +16,10 @@ z-index: 3;
 }
 `
 export const BG = styled.div`
-background: rgba(0, 0, 0, 0.5);
+background: rgba(10, 10, 12, 0.7);
 cursor: pointer;
 height: 100vh;
+height: 100dvh;
 position: fixed;
 width: 100vw;
 z-index: 2;
@@ -37,7 +38,7 @@ top: 60px;
 
 &::before,
 &::after {
-background: #24408f;
+background: #1c1e22;
 content : '';
 position: absolute;
 height: 33px;

@@ -38,31 +38,35 @@ Black Magic is a small, self contained React application. There is no router, no
 
 The interaction is driven by one calculation. On every pointer or touch move, the app measures how close the cursor is to the center of the viewport and turns that distance into a value between zero and one. That value:
 
-1. Spreads or gathers the twenty four mosaic tiles.
-2. Deepens or lifts the background color, so the whole page breathes with the motion.
-3. Triggers a soft glow animation once the tiles are fully aligned.
+1. Spreads or gathers the twenty four mosaic tiles, as though a figure is surfacing from water.
+2. Deepens or lifts the background tone, so the whole page breathes with the motion.
+3. Triggers a soft, slow glow once the tiles are fully aligned.
+
+On load, the header, footer and mosaic fade up out of black with a slow, critically damped easing curve rather than sliding or bouncing into place, echoing the way the source photograph itself emerges from darkness.
 
 ## Design system
 
 <img src="docs/color-system.svg" alt="Black Magic color tokens and typography" width="100%" />
 
-The palette moved from a flat, saturated blue to a deep, near black navy with an electric blue signal color. This keeps full attention on the mosaic image while still giving buttons, links and the modal enough contrast to stay usable.
+The site now follows a near monochrome, editorial art direction: a bleached, ritualistic photograph emerging from total darkness, so the palette stays desaturated and the type stays quiet.
 
 | Token | Value | Used for |
 | --- | --- | --- |
-| Void | `#05070f` | Page background |
-| Depth | `#0c1636` | Gradient shadows on the emblem |
-| Ink blue | `#24408f` | Modal text and interactive borders |
-| Signal | `#4f7dff` | Primary accent, glow shadow |
-| Glow | `#7fc4ff` | Hover states, gradient highlight |
-| Paper | `#f5f7ff` | Body copy and light surfaces |
+| Background | `#0a0a0c` | Page background, near black |
+| Charcoal | `#1c1e22` | Emblem gradient, dark UI text on paper |
+| Shadow blue | `#12151c` | Deepest gradient stop behind the emblem |
+| Bone | `#e8e4da` | Body copy, wordmark, headings |
+| Oxidized silver | `#8a8f92` | Accent, borders, hover states |
+| Paper | `#efece3` | Modal card background |
 
-Typography pairs a serif display face with a modern grotesque:
+No saturated color appears anywhere in the interface. Typography pairs a high contrast editorial serif with a thin, quiet sans:
 
-- **Cinzel** for the wordmark, the sign up button and headings, giving the brand its ceremonial, engraved feel.
-- **Manrope** for body copy, labels and form fields, keeping longer text easy to read.
+- **Playfair Display** for the wordmark, the sign up button and headings, giving the brand a museum catalog, engraved feel.
+- **Jost**, at a light 300 weight, for body copy and form fields, with generous letter spacing on small caps labels such as the footer's "I &middot; The Gathering".
 
 Both fonts are loaded from Google Fonts in `public/index.html` with a `preconnect` hint so they do not block the first paint.
+
+A subtle film grain sits over the entire viewport at low opacity, generated with an inline SVG `feTurbulence` filter rather than a shipped image, giving the whole page a tactile, unsettling texture without adding any extra network requests.
 
 ## Tech stack
 
@@ -148,9 +152,15 @@ This project went through a full visual and technical pass:
 - All raster images were converted to WebP. There are no PNG or JPG files anywhere in the source tree, keeping the shipped bundle smaller without any visible quality loss.
 - The favicon remains an ICO file, since that format still has the widest browser support for tab icons and cannot be replaced by WebP.
 - The social and success icons were rebuilt as a consistent, single color line art set that inherits `currentColor`, so they always match the surrounding text.
-- The color system moved from a bright, flat blue to a layered dark palette so the hero photograph reads clearly against the background.
+- The color system moved twice: first from a flat saturated blue to a dark navy, and then to the current near monochrome, editorial palette built around the ritual photograph.
 - A broken nested style block in the sign up form was fixed, an invalid `for` attribute on the form labels was corrected to `htmlFor`, and the sign up form now calls `preventDefault` so submitting it never reloads the page.
 - The default Create React App test and a stale `package-lock.json` entry pointing at an untrusted mirror registry were both removed.
+
+### Fixing a broken mosaic on iOS Chrome and Safari
+
+An earlier responsive pass scaled the mosaic down on small screens with `transform: scale()` on its parent, while each of the twenty four tiles inside it also carried its own `transform: translate()` for the scatter animation. WebKit, the engine behind both Safari and Chrome on iOS, has a long standing bug where a `background-image` on an element nested inside a transformed ancestor can fail to paint correctly, showing as a blank or broken tile.
+
+The fix removes the parent `transform: scale()` entirely. Tile size is now controlled by a single CSS custom property, `--tile`, set on the mosaic container and adjusted per breakpoint. Every tile's width, height, `background-size` and `background-position` are derived from that one variable with `calc()`, so the whole grid resizes through real layout rather than a visual transform trick. This is both more correct and removes the exact nested transform and background image combination that WebKit mishandles.
 
 ## Browser support
 

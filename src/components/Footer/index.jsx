@@ -4,7 +4,7 @@ import { Footer, H2, H2Middle } from "./styles";
 const FooterComponent = () => (
     <Footer>
         <H2>Jun 12</H2>
-        <H2Middle>The Gathering</H2Middle>
+        <H2Middle>I &middot; The Gathering</H2Middle>
         <H2>Aug 12</H2>
     </Footer>
 )

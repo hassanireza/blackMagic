@@ -1,11 +1,11 @@
 <svg width="900" height="420" viewBox="0 0 900 420" xmlns="http://www.w3.org/2000/svg" font-family="Manrope, Arial, sans-serif">
   <defs>
     <linearGradient id="edge" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#4f7dff"/>
-      <stop offset="100%" stop-color="#7fc4ff"/>
+      <stop offset="0%" stop-color="#8a8f92"/>
+      <stop offset="100%" stop-color="#e8e4da"/>
     </linearGradient>
   </defs>
-  <rect width="900" height="420" fill="#05070f"/>
+  <rect width="900" height="420" fill="#0a0a0c"/>
 
   <g stroke="url(#edge)" stroke-width="2" fill="none">
     <path d="M450 92 L450 130"/>
@@ -18,35 +18,35 @@
   </g>
 
   <g>
-    <rect x="330" y="34" width="240" height="58" rx="12" fill="#0c1636" stroke="#7fc4ff" stroke-width="1.6"/>
-    <text x="450" y="68" text-anchor="middle" fill="#f5f7ff" font-size="18" font-weight="700">App.jsx</text>
+    <rect x="330" y="34" width="240" height="58" rx="12" fill="#1c1e22" stroke="#e8e4da" stroke-width="1.6"/>
+    <text x="450" y="68" text-anchor="middle" fill="#e8e4da" font-size="18" font-weight="700">App.jsx</text>
 
-    <rect x="330" y="130" width="240" height="70" rx="12" fill="#0c1636" stroke="#4f7dff" stroke-width="1.6"/>
-    <text x="450" y="158" text-anchor="middle" fill="#f5f7ff" font-size="15" font-weight="600">Pointer and touch tracking</text>
-    <text x="450" y="180" text-anchor="middle" fill="#bcd4ff" font-size="13">drives the ambient glow</text>
+    <rect x="330" y="130" width="240" height="70" rx="12" fill="#1c1e22" stroke="#8a8f92" stroke-width="1.6"/>
+    <text x="450" y="158" text-anchor="middle" fill="#e8e4da" font-size="15" font-weight="600">Pointer and touch tracking</text>
+    <text x="450" y="180" text-anchor="middle" fill="#8a8f92" font-size="13">drives the ambient glow</text>
 
-    <rect x="70" y="240" width="220" height="60" rx="12" fill="#0c1636" stroke="#7fc4ff" stroke-width="1.6"/>
-    <text x="180" y="266" text-anchor="middle" fill="#f5f7ff" font-size="15" font-weight="700">Header</text>
-    <text x="180" y="286" text-anchor="middle" fill="#bcd4ff" font-size="12">Wordmark and emblem</text>
+    <rect x="70" y="240" width="220" height="60" rx="12" fill="#1c1e22" stroke="#e8e4da" stroke-width="1.6"/>
+    <text x="180" y="266" text-anchor="middle" fill="#e8e4da" font-size="15" font-weight="700">Header</text>
+    <text x="180" y="286" text-anchor="middle" fill="#8a8f92" font-size="12">Wordmark and emblem</text>
 
-    <rect x="340" y="240" width="220" height="60" rx="12" fill="#0c1636" stroke="#7fc4ff" stroke-width="1.6"/>
-    <text x="450" y="266" text-anchor="middle" fill="#f5f7ff" font-size="15" font-weight="700">ImgBox grid</text>
-    <text x="450" y="286" text-anchor="middle" fill="#bcd4ff" font-size="12">24 tiles of the hero mosaic</text>
+    <rect x="340" y="240" width="220" height="60" rx="12" fill="#1c1e22" stroke="#e8e4da" stroke-width="1.6"/>
+    <text x="450" y="266" text-anchor="middle" fill="#e8e4da" font-size="15" font-weight="700">ImgBox grid</text>
+    <text x="450" y="286" text-anchor="middle" fill="#8a8f92" font-size="12">24 tiles of the hero mosaic</text>
 
-    <rect x="610" y="240" width="220" height="60" rx="12" fill="#0c1636" stroke="#7fc4ff" stroke-width="1.6"/>
-    <text x="720" y="266" text-anchor="middle" fill="#f5f7ff" font-size="15" font-weight="700">Footer</text>
-    <text x="720" y="286" text-anchor="middle" fill="#bcd4ff" font-size="12">Gathering dates</text>
+    <rect x="610" y="240" width="220" height="60" rx="12" fill="#1c1e22" stroke="#e8e4da" stroke-width="1.6"/>
+    <text x="720" y="266" text-anchor="middle" fill="#e8e4da" font-size="15" font-weight="700">Footer</text>
+    <text x="720" y="286" text-anchor="middle" fill="#8a8f92" font-size="12">Gathering dates</text>
 
-    <rect x="70" y="340" width="220" height="60" rx="12" fill="#0c1636" stroke="#4f7dff" stroke-width="1.6"/>
-    <text x="180" y="366" text-anchor="middle" fill="#f5f7ff" font-size="14" font-weight="600">Sign up button</text>
-    <text x="180" y="386" text-anchor="middle" fill="#bcd4ff" font-size="12">opens the modal</text>
+    <rect x="70" y="340" width="220" height="60" rx="12" fill="#1c1e22" stroke="#8a8f92" stroke-width="1.6"/>
+    <text x="180" y="366" text-anchor="middle" fill="#e8e4da" font-size="14" font-weight="600">Sign up button</text>
+    <text x="180" y="386" text-anchor="middle" fill="#8a8f92" font-size="12">opens the modal</text>
 
-    <rect x="340" y="340" width="220" height="60" rx="12" fill="#0c1636" stroke="#4f7dff" stroke-width="1.6"/>
-    <text x="450" y="366" text-anchor="middle" fill="#f5f7ff" font-size="14" font-weight="600">Modal + Form</text>
-    <text x="450" y="386" text-anchor="middle" fill="#bcd4ff" font-size="12">newsletter capture</text>
+    <rect x="340" y="340" width="220" height="60" rx="12" fill="#1c1e22" stroke="#8a8f92" stroke-width="1.6"/>
+    <text x="450" y="366" text-anchor="middle" fill="#e8e4da" font-size="14" font-weight="600">Modal + Form</text>
+    <text x="450" y="386" text-anchor="middle" fill="#8a8f92" font-size="12">newsletter capture</text>
 
-    <rect x="610" y="340" width="220" height="60" rx="12" fill="#0c1636" stroke="#4f7dff" stroke-width="1.6"/>
-    <text x="720" y="366" text-anchor="middle" fill="#f5f7ff" font-size="14" font-weight="600">ModalInner success</text>
-    <text x="720" y="386" text-anchor="middle" fill="#bcd4ff" font-size="12">social follow icons</text>
+    <rect x="610" y="340" width="220" height="60" rx="12" fill="#1c1e22" stroke="#8a8f92" stroke-width="1.6"/>
+    <text x="720" y="366" text-anchor="middle" fill="#e8e4da" font-size="14" font-weight="600">ModalInner success</text>
+    <text x="720" y="386" text-anchor="middle" fill="#8a8f92" font-size="12">social follow icons</text>
   </g>
 </svg>

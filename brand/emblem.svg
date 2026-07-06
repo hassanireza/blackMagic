@@ -1,18 +1,18 @@
 <svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <radialGradient id="bg" cx="50%" cy="46%" r="65%">
-      <stop offset="0%" stop-color="#0c1636"/>
-      <stop offset="100%" stop-color="#05070f"/>
+      <stop offset="0%" stop-color="#1c1e22"/>
+      <stop offset="100%" stop-color="#0a0a0c"/>
     </radialGradient>
     <linearGradient id="ring" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#9fe8ff"/>
-      <stop offset="100%" stop-color="#3f8bff"/>
+      <stop offset="0%" stop-color="#e8e4da"/>
+      <stop offset="100%" stop-color="#8a8f92"/>
     </linearGradient>
   </defs>
   <rect width="512" height="512" rx="96" fill="url(#bg)"/>
   <g stroke="url(#ring)" fill="none" stroke-linecap="round">
-    <circle cx="256" cy="256" r="118" stroke-width="10"/>
-    <path d="M256 96v44M256 372v44M96 256h44M372 256h44M148 148l28 28M336 336l28 28M148 364l28-28M336 176l28-28" stroke-width="10"/>
+    <circle cx="256" cy="256" r="118" stroke-width="8"/>
+    <path d="M256 96v44M256 372v44M96 256h44M372 256h44M148 148l28 28M336 336l28 28M148 364l28-28M336 176l28-28" stroke-width="8"/>
   </g>
   <path d="M256 118L266 232L380 246L266 260L256 374L246 260L132 246L246 232Z" fill="url(#ring)"/>
 </svg>

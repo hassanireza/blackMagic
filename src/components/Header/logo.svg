@@ -2,18 +2,17 @@
   <title id="black-magic-logo-title">Black Magic</title>
   <defs>
     <linearGradient id="bm-glow" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#bdeeff"/>
-      <stop offset="55%" stop-color="#7fc4ff"/>
-      <stop offset="100%" stop-color="#4f7dff"/>
+      <stop offset="0%" stop-color="#e8e4da"/>
+      <stop offset="100%" stop-color="#8a8f92"/>
     </linearGradient>
   </defs>
 
   <g transform="translate(4, 15)" stroke="url(#bm-glow)" fill="none" stroke-linecap="round">
-    <circle cx="52" cy="52" r="33" stroke-width="3.2"/>
-    <path d="M52 6v13M52 85v13M6 52h13M85 52h13M23 23l9 9M72 72l9 9M23 81l9-9M72 32l9-9" stroke-width="3.2"/>
+    <circle cx="52" cy="52" r="33" stroke-width="2.6"/>
+    <path d="M52 6v13M52 85v13M6 52h13M85 52h13M23 23l9 9M72 72l9 9M23 81l9-9M72 32l9-9" stroke-width="2.6"/>
   </g>
   <path transform="translate(4, 15)" d="M52 29L57 47L75 52L57 57L52 75L47 57L29 52L47 47Z" fill="url(#bm-glow)"/>
 
-  <text x="130" y="86" font-family="'Cinzel', 'Times New Roman', serif" font-weight="700" font-size="66" letter-spacing="5" fill="#f5f7ff">BLACK</text>
-  <text x="130" y="128" font-family="'Cinzel', 'Times New Roman', serif" font-weight="500" font-size="30" letter-spacing="15" fill="url(#bm-glow)">MAGIC</text>
+  <text x="130" y="86" font-family="'Playfair Display', 'Times New Roman', serif" font-weight="600" font-size="66" letter-spacing="4" fill="#e8e4da">BLACK</text>
+  <text x="130" y="128" font-family="'Playfair Display', 'Times New Roman', serif" font-weight="500" font-size="28" letter-spacing="14" fill="url(#bm-glow)">MAGIC</text>
 </svg>
