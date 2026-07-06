@@ -1,3 +1,7 @@
+
+
+https://github.com/user-attachments/assets/891317fa-75f1-443e-993b-de93e4120bfd
+
 # Black Magic
 
 [![Build and deploy to GitHub Pages](https://github.com/hassanireza/blackMagic/actions/workflows/deploy.yml/badge.svg?branch=main)](https://github.com/hassanireza/blackMagic/actions/workflows/deploy.yml)
