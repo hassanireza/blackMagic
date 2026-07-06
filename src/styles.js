@@ -13,6 +13,7 @@ export const GlobalStyle = createGlobalStyle`
     body {
         color: #f5f7ff;
         height: 100vh;
+        height: 100dvh;
         width: 100vw;
         margin: 0;
         padding: 0;
@@ -66,6 +67,7 @@ display: flex;
 justify-content: center;
 align-items: center;
 height: 100vh;
+height: 100dvh;
 width: 100vw;
 transition: background-color 0.15s ease-out;
 `
@@ -82,6 +84,7 @@ ${AbsoluteCenter}
 background: rgba(5, 7, 15, 0.55);
 border: 2px solid #7fc4ff;
 border-radius: 100%;
+box-sizing: border-box;
 color: #f5f7ff;
 cursor: pointer;
 font-family: 'Cinzel', serif;
@@ -103,5 +106,13 @@ box-shadow: 0 0 40px rgba(127, 196, 255, 0.5);
 @media (max-width: 700px) {
     font-size: 22px;
     width: 220px;
+}
+
+@media (max-width: 480px) {
+    border-radius: 60px;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    padding: 16px 8px;
+    width: 168px;
 }
 `
