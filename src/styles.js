@@ -45,6 +45,17 @@ export const ImageContainer = styled.div.attrs(({ $isTogether }) => (
     height: 600px;
     width: 400px;
 
+    @media (max-width: 700px) {
+    transform: scale(0.85);
+    }
+
+    @media (max-width: 480px) {
+    transform: scale(0.68);
+    }
+
+    @media (max-width: 360px) {
+    transform: scale(0.58);
+    }
 `
 export const Wrapper = styled.section.attrs(({ $glow }) => ({
     style: {
