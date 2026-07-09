@@ -2,7 +2,7 @@ https://github.com/user-attachments/assets/891317fa-75f1-443e-993b-de93e4120bfd
 
 # Black Magic
 
-[![Build and deploy to GitHub Pages](https://github.com/hassanireza/blackMagic-main/actions/workflows/deploy.yml/badge.svg?branch=main)](https://github.com/hassanireza/blackMagic-main/actions/workflows/deploy.yml)
+[![Build and deploy to GitHub Pages](https://github.com/hassanireza/blackMagic/actions/workflows/deploy.yml/badge.svg?branch=main)](https://github.com/hassanireza/blackMagic/actions/workflows/deploy.yml)
 [![Deployed on GitHub Pages](https://img.shields.io/badge/deployed-github%20pages-4f7dff)](https://hassanireza.github.io/blackMagic-main)
 [![React](https://img.shields.io/badge/react-18.3-61dafb?logo=react&logoColor=white)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/typescript-5.5-3178c6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
