@@ -5,7 +5,7 @@ import svgr from 'vite-plugin-svgr'
 // GitHub Pages serves this project from https://hassanireza.github.io/blackMagic-main/
 // so the base path must match the repository name exactly.
 export default defineConfig({
-  base: '/blackMagic-main/',
+  base: '/blackMagic/',
   plugins: [react(), svgr()],
   build: {
     outDir: 'dist',
