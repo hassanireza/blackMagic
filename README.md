@@ -1,17 +1,16 @@
-
-
 https://github.com/user-attachments/assets/891317fa-75f1-443e-993b-de93e4120bfd
 
 # Black Magic
 
-[![Build and deploy to GitHub Pages](https://github.com/hassanireza/blackMagic/actions/workflows/deploy.yml/badge.svg?branch=main)](https://github.com/hassanireza/blackMagic/actions/workflows/deploy.yml)
-[![Deployed on GitHub Pages](https://img.shields.io/badge/deployed-github%20pages-4f7dff)](https://hassanireza.github.io/blackMagic)
+[![Build and deploy to GitHub Pages](https://github.com/hassanireza/blackMagic-main/actions/workflows/deploy.yml/badge.svg?branch=main)](https://github.com/hassanireza/blackMagic-main/actions/workflows/deploy.yml)
+[![Deployed on GitHub Pages](https://img.shields.io/badge/deployed-github%20pages-4f7dff)](https://hassanireza.github.io/blackMagic-main)
 [![React](https://img.shields.io/badge/react-18.3-61dafb?logo=react&logoColor=white)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/typescript-5.5-3178c6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Vite](https://img.shields.io/badge/vite-5.4-646cff?logo=vite&logoColor=white)](https://vitejs.dev/)
 [![styled--components](https://img.shields.io/badge/styled--components-6.4-db7093?logo=styledcomponents&logoColor=white)](https://styled-components.com/)
 [![Node](https://img.shields.io/badge/node-20.x-339933?logo=node.js&logoColor=white)](https://nodejs.org/)
-[![License](https://img.shields.io/badge/license-add%20one-lightgrey)](#license)
 
-An interactive teaser site for Black Magic, built as a single scroll free experience where a mosaic image reassembles itself as the visitor moves their cursor or finger across the screen.
+An interactive teaser site for Black Magic, built as a single scroll free experience where a mosaic image reassembles itself as the visitor moves their cursor or finger across the screen. This version is a full rebuild of the original Create React App project onto Vite, TypeScript, and a layered OOP architecture.
 
 <img src="docs/architecture.svg" alt="Black Magic component architecture diagram" width="100%" />
 
@@ -19,19 +18,19 @@ An interactive teaser site for Black Magic, built as a single scroll free experi
 
 - [Overview](#overview)
 - [Live experience](#live-experience)
+- [Architecture](#architecture)
 - [Design system](#design-system)
 - [Tech stack](#tech-stack)
 - [Project structure](#project-structure)
 - [Getting started](#getting-started)
 - [Available scripts](#available-scripts)
 - [Deployment](#deployment)
-- [Rebrand and asset notes](#rebrand-and-asset-notes)
 - [Browser support](#browser-support)
 - [License](#license)
 
 ## Overview
 
-Black Magic is a small, self contained React application. There is no router, no backend and no build time content pipeline beyond Create React App. The entire experience lives in a handful of styled components:
+Black Magic is a small, self contained React application. There is no router, no backend, and no build time content pipeline beyond Vite. The experience lives in a handful of components backed by a plain TypeScript class layer:
 
 - A hero mosaic made of twenty four tiles that drift apart at rest and snap together into a single image as the visitor's cursor approaches the center of the screen.
 - A wordmark and emblem in the header, drawn as a single inline SVG so it stays crisp at any size.
@@ -40,136 +39,116 @@ Black Magic is a small, self contained React application. There is no router, no
 
 ## Live experience
 
-The interaction is driven by one calculation. On every pointer or touch move, the app measures how close the cursor is to the center of the viewport and turns that distance into a value between zero and one. That value:
+The interaction is driven by one calculation, encapsulated in the `PointerTracker` class. On every pointer or touch move, `PointerTracker` measures how close the cursor is to the center of the viewport and turns that distance into an eased value between zero and one. That value:
 
 1. Spreads or gathers the twenty four mosaic tiles, as though a figure is surfacing from water.
 2. Deepens or lifts the background tone, so the whole page breathes with the motion.
 3. Triggers a soft, slow glow once the tiles are fully aligned.
 
-On load, the header, footer and mosaic fade up out of black with a slow, critically damped easing curve rather than sliding or bouncing into place, echoing the way the source photograph itself emerges from darkness.
+On load, the header, footer, and mosaic fade up out of black with a slow, critically damped easing curve rather than sliding or bouncing into place, echoing the way the source photograph itself emerges from darkness.
+
+## Architecture
+
+The rebuild separates plain TypeScript logic from React presentation:
+
+- `src/core/PointerTracker.ts` turns pointer or touch coordinates into an eased closeness-to-center value.
+- `src/core/MosaicGrid.ts` owns the tile matrix and generates each tile's randomized drift vector.
+- `src/core/SignupFormController.ts` models the two-stage signup flow (idle to submitted) independently of any component.
+- React components (`App`, `Mosaic`, `Header`, `Footer`, `Modal`, `ModalInner`, `Form`) stay thin: they hold view state, wire up event handlers, and hand the real work off to the classes above.
+
+Each core class is unit tested in isolation under `src/core/__tests__`, with no rendering or DOM involved.
 
 ## Design system
 
 <img src="docs/color-system.svg" alt="Black Magic color tokens and typography" width="100%" />
 
-The site now follows a near monochrome, editorial art direction: a bleached, ritualistic photograph emerging from total darkness, so the palette stays desaturated and the type stays quiet.
+The site follows a near monochrome, editorial art direction: a bleached, ritualistic photograph emerging from total darkness, so the palette stays desaturated and the type stays quiet.
 
 | Token | Value | Used for |
 | --- | --- | --- |
 | Background | `#0a0a0c` | Page background, near black |
 | Charcoal | `#1c1e22` | Emblem gradient, dark UI text on paper |
-| Shadow blue | `#12151c` | Deepest gradient stop behind the emblem |
-| Bone | `#e8e4da` | Body copy, wordmark, headings |
-| Oxidized silver | `#8a8f92` | Accent, borders, hover states |
-| Paper | `#efece3` | Modal card background |
+| Shadow blue | `#12151c` | Ambient tone shift as the cursor moves |
+| Bone | `#e8e4da` | Primary text on dark backgrounds |
+| Silver | `#8a8f92` | Borders, secondary accents, glow |
 
-No saturated color appears anywhere in the interface. Typography pairs a high contrast editorial serif with a thin, quiet sans:
-
-- **Playfair Display** for the wordmark, the sign up button and headings, giving the brand a museum catalog, engraved feel.
-- **Jost**, at a light 300 weight, for body copy and form fields, with generous letter spacing on small caps labels such as the footer's "I &middot; The Gathering".
-
-Both fonts are loaded from Google Fonts in `public/index.html` with a `preconnect` hint so they do not block the first paint.
-
-A subtle film grain sits over the entire viewport at low opacity, generated with an inline SVG `feTurbulence` filter rather than a shipped image, giving the whole page a tactile, unsettling texture without adding any extra network requests.
+Typography pairs a serif display face, Playfair Display, for headings and the sign up button, with a thin weight sans, Jost, for body copy and labels.
 
 ## Tech stack
 
-- [React 18](https://react.dev/) with [Create React App](https://create-react-app.dev/) for the build toolchain.
-- [styled-components](https://styled-components.com/) for scoped, themeable CSS in JavaScript.
-- Inline SVG for every icon and the logo, imported as React components through Create React App's built in SVGR support.
-- [Testing Library](https://testing-library.com/) and Jest for component tests.
-- GitHub Actions for continuous integration and deployment to GitHub Pages.
+- React 18 with function components and hooks
+- TypeScript in strict mode
+- Vite for dev server and production bundling
+- styled-components for CSS-in-JS, themed with CSS custom properties
+- vite-plugin-svgr for typed inline SVG imports
+- Vitest for unit testing the core class layer
+- ESLint with the TypeScript and React Hooks plugins
 
 ## Project structure
 
 ```
-public/
-  favicon.ico            App icon for browser tabs, generated from brand/emblem.svg
-  image.webp             Hero mosaic photograph
-  logo192.webp           App icon, 192x192, used in manifest.json
-  logo512.webp           App icon, 512x512, used in manifest.json
-  index.html             HTML shell, fonts and meta tags
-  manifest.json          Web app manifest
-
-src/
-  components/
-    Header/              Wordmark and emblem
-    Footer/              Gathering dates
-    ImgBox/               A single mosaic tile
-    Modal/                Overlay shell and close control
-    ModalInner/           Sign up form and success state
-    Form/                 Name and email fields
-  App.jsx                 Pointer tracking and layout composition
-  styles.js               Global styles, palette and shared primitives
-
-docs/
-  architecture.svg        Component diagram used in this README
-  color-system.svg        Palette and type reference used in this README
-
-brand/
-  emblem.svg              Source file for the favicon and app icons
-
-.github/workflows/
-  deploy.yml               Build, test and deploy pipeline
+blackMagic-main/
+├── public/                  Static assets copied as-is (image, icons, manifest)
+├── brand/                   Source emblem SVG
+├── docs/                    Architecture and design system diagrams
+├── src/
+│   ├── core/                Plain TypeScript OOP logic layer
+│   │   ├── PointerTracker.ts
+│   │   ├── MosaicGrid.ts
+│   │   ├── SignupFormController.ts
+│   │   └── __tests__/
+│   ├── components/
+│   │   ├── Header/
+│   │   ├── Footer/
+│   │   ├── Mosaic/           Tile grid, renamed from ImgBox
+│   │   ├── Modal/
+│   │   ├── ModalInner/
+│   │   └── Form/
+│   ├── App.tsx
+│   ├── main.tsx
+│   ├── styles.ts             Global styles and shared style fragments
+│   └── vite-env.d.ts
+├── index.html
+├── vite.config.ts
+├── tsconfig.json
+└── package.json
 ```
 
 ## Getting started
 
-You will need Node.js 20 or newer and npm.
-
 ```bash
 npm install
-npm start
+npm run dev
 ```
 
-The app runs at `http://localhost:3000`.
+The dev server runs at the URL Vite prints in the terminal, typically `http://localhost:5173`.
 
 ## Available scripts
 
-| Command | Description |
+| Script | Description |
 | --- | --- |
-| `npm start` | Runs the app in development mode with hot reload |
-| `npm test` | Runs the Jest and Testing Library suite in watch mode |
-| `npm run build` | Produces an optimized, production ready bundle in `build/` |
+| `npm run dev` | Starts the Vite dev server with hot module replacement |
+| `npm run build` | Type checks with `tsc` and builds the production bundle to `dist/` |
+| `npm run preview` | Serves the production build locally |
+| `npm test` | Runs the Vitest unit test suite once |
+| `npm run lint` | Runs ESLint across the project |
 
 ## Deployment
 
-This repository deploys to GitHub Pages automatically through `.github/workflows/deploy.yml`. Every push to `main` will:
+This repository deploys to GitHub Pages through GitHub Actions. On every push to `main`, `.github/workflows/deploy.yml`:
 
-1. Install dependencies with `npm ci`.
-2. Run the test suite with `CI=true`.
-3. Build the production bundle with `npm run build`.
-4. Upload the bundle as a Pages artifact and publish it with `actions/deploy-pages`.
+1. Installs dependencies with `npm ci`.
+2. Runs the Vitest suite.
+3. Runs ESLint.
+4. Type checks and builds the production bundle with `npm run build`.
+5. Uploads `dist/` as a Pages artifact and deploys it.
 
-To enable this in your own GitHub repository:
-
-1. Push this project to a repository under your account.
-2. In the repository settings, open **Pages** and set the source to **GitHub Actions**.
-3. Update the `homepage` field in `package.json` so it matches your repository, for example `https://your-username.github.io/your-repo-name`. Create React App uses this value to set the correct base path for every asset in the production build.
-4. Push to `main`. The workflow will build and publish the site automatically.
-
-## Rebrand and asset notes
-
-This project went through a full visual and technical pass:
-
-- The wordmark and app icons were redrawn from scratch as vector artwork and now live in `brand/emblem.svg` and `src/components/Header/logo.svg`.
-- All raster images were converted to WebP. There are no PNG or JPG files anywhere in the source tree, keeping the shipped bundle smaller without any visible quality loss.
-- The favicon remains an ICO file, since that format still has the widest browser support for tab icons and cannot be replaced by WebP.
-- The social and success icons were rebuilt as a consistent, single color line art set that inherits `currentColor`, so they always match the surrounding text.
-- The color system moved twice: first from a flat saturated blue to a dark navy, and then to the current near monochrome, editorial palette built around the ritual photograph.
-- A broken nested style block in the sign up form was fixed, an invalid `for` attribute on the form labels was corrected to `htmlFor`, and the sign up form now calls `preventDefault` so submitting it never reloads the page.
-- The default Create React App test and a stale `package-lock.json` entry pointing at an untrusted mirror registry were both removed.
-
-### Fixing a broken mosaic on iOS Chrome and Safari
-
-An earlier responsive pass scaled the mosaic down on small screens with `transform: scale()` on its parent, while each of the twenty four tiles inside it also carried its own `transform: translate()` for the scatter animation. WebKit, the engine behind both Safari and Chrome on iOS, has a long standing bug where a `background-image` on an element nested inside a transformed ancestor can fail to paint correctly, showing as a blank or broken tile.
-
-The fix removes the parent `transform: scale()` entirely. Tile size is now controlled by a single CSS custom property, `--tile`, set on the mosaic container and adjusted per breakpoint. Every tile's width, height, `background-size` and `background-position` are derived from that one variable with `calc()`, so the whole grid resizes through real layout rather than a visual transform trick. This is both more correct and removes the exact nested transform and background image combination that WebKit mishandles.
+The Vite `base` in `vite.config.ts` and the absolute asset paths in `index.html` are set to `/blackMagic-main/`, matching this repository's name. If the repository is ever renamed, update both to match.
 
 ## Browser support
 
-The site targets the last version of Chrome, Firefox and Safari in development, and the wider `>0.2%, not dead, not op_mini all` browserslist target in production, matching the configuration in `package.json`.
+Targets evergreen browsers. `100dvh` and CSS custom properties are used throughout, so very old browsers (pre-2021) may not render the layout correctly.
 
 ## License
 
-This project is provided as is for Black Magic. Add your preferred license here before making the repository public, then update the license badge at the top of this file to match.
+Add a license of your choosing.

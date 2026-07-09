@@ -31,19 +31,18 @@ jobs:
         run: npm ci
 
       - name: Run test suite
-        run: npm test -- --watchAll=false
-        env:
-          CI: true
+        run: npm test
 
-      - name: Build production bundle
+      - name: Lint
+        run: npm run lint
+
+      - name: Type check and build production bundle
         run: npm run build
-        env:
-          CI: false
 
       - name: Upload build artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: build
+          path: dist
 
   deploy:
     needs: build
